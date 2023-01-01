@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+$dark-grayish-red: hsl(0, 6%, 24%);
+$gradient1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$gradient2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+
+.BaseApparelPage{
+  font-family: 'Josefin Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $desaturated-red;
+  height: 100vh;
+  .logo {
+    padding: 30px 30px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+    gap: 20px;
+    overflow: hidden;
+    .desktop-background {
+      display: none;
+    }
+    h1 {
+      color: $dark-grayish-red;
+      width: 250px;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      span {
+        color: $desaturated-red;
+        font-weight: 300;
+      }
+    }
+    p {
+      width: 350px;
+      line-height: 25px;
+    }
+    form {
+      position: relative;
+      height: 50px;
+      width: 90%;
+      & > img {
+        display: none;
+        position: absolute;
+        right: 80px;
+        top: 12.5px;
+        z-index: 1;
+        &.error {
+          display: block;
+        }
+      }
+      p {
+        display: none;
+        position: absolute;
+        text-align: left;
+        bottom: -30px;
+        left: 20px;
+        font-weight: 300;
+        color: $soft-red;
+        &.error {
+          display: block;
+        }
+      }
+      input[type=text] {
+        padding: 0 25px;
+        color: $desaturated-red;
+        height: 100%;
+        border-radius: 50px;
+        border: 1px solid $desaturated-red;
+        width: 100%;
+        background: $gradient1;
+        &:focus {
+          border: 3px solid $desaturated-red;
+          outline: none;
+        }
+        &.error {
+          border: 2px solid $soft-red;
+          &:focus {
+            border: 2px solid $soft-red;
+          }
+        }
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background: $gradient2;
+        border: none;
+        width: 70px;
+        border-radius: 50px;
+        box-shadow: 0 10px 20px 1px $desaturated-red;
+        &:hover {
+          background: linear-gradient(135deg, #fad3d3, #eda4a4);;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .BaseApparelPage{
+    position: relative;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100vw;
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 150px;
+      z-index: 2;
+    }
+    .hero {
+      flex-basis: 40%;
+      height: 100%;
+      z-index: 2;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .content {
+      flex-basis: 75%;
+      z-index: 1;
+      position: relative;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      padding-left: 150px;
+      height: 100%;
+      .desktop-background {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        object-fit: contain;
+      }
+      h1 {
+        font-size: 4rem;
+      }
+      p {
+        width: 430px;
+      }
+      form {
+        width: 450px;
+        & > img {
+          right: 110px;
+        }
+        button {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
